@@ -1,0 +1,168 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #222;
+}
+
+.texte {
+    position: absolute;
+    text-align: center;
+    margin-bottom: 50px;
+    max-width: 900px;
+}
+
+.texte p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    margin: 0 0 20px;
+    padding: 0 10px;
+}
+
+.container {
+    position: relative;
+    width: 400px; /* Largeur du conteneur du cercle */
+    height: 400px; /* Hauteur du conteneur du cercle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.skills {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.container .card{
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background: #2a2a2a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .card .title {
+    position: absolute;
+    top: -25px; /* Décalage du titre au-dessus */
+    left: 50%;
+    transform: translateX(-50%); /* Centrer horizontalement */
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px; /* Un petit espacement sous le titre */
+}
+
+.container .card .pourcent{
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.container .card .pourcent svg{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    transform: rotate(270deg);
+    border-radius: 50%;
+}
+
+.container .card .pourcent svg circle{
+    width: 100%;
+    height: 100%;
+    fill: transparent;
+    stroke-width: 3;
+    stroke: #191919;
+    transform: translate(5px, 5px);
+}
+
+/* Cercle de progression (il se superpose au cercle de fond) */
+.container .card .pourcent svg circle:nth-child(2) {
+    stroke: var(--clr); /* Couleur de la progression */
+    stroke-width: 3;
+    fill: transparent;
+    stroke-dasharray: 440; /* Longueur totale du cercle */
+    stroke-dashoffset: 440; /* Initialement tout le cercle est caché */
+    opacity: 0; /* Le cercle de progression est invisible au départ */
+    transition: stroke-dashoffset 0.3s ease-out, opacity 1s ease-out; /* Animation fluide */
+    animation: fadeIn 1s linear forwards;
+    animation-delay: 1.5s; /* On retarde l'apparition de la couleur */
+    filter: drop-shadow(0 0 5px var(--clr)) drop-shadow(0 0 15px var(--clr));
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.dot{
+  position: absolute;
+  inset: 5px;  
+  z-index: 10;
+  transform: rotate(calc(3.6deg * var(--num)));
+  animation: animateDot 1s linear forwards;
+}
+
+@keyframes animateDot{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(calc(3.6deg * var(--num)));
+    }
+}
+
+.dot::before{
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--clr);
+    box-shadow: 0 0 10px var(--clr),
+    0 0 30px var(--clr);
+}
+
+.container .card .pourcent .number {
+    position: absolute; /* Positionner absolument à l'intérieur du cercle */
+    top: 50%;           /* Placer au centre vertical */
+    left: 50%;          /* Placer au centre horizontal */
+    transform: translate(-50%, -50%); /* Décalage de -50% de sa propre taille */
+    font-size: 20px;    /* Ajuster la taille du texte */
+    font-weight: bold;  /* Optionnel: pour rendre le texte plus visible */
+    color: #fff;        /* Couleur du texte */
+    z-index: 10;        /* Placer le texte au-dessus des cercles */
+    text-shadow: 0 0 5px var(--clr), 0 0 10px var(--clr), 0 0 15px var(--clr), 0 0 20px var(--clr);
+}
+
+.number {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    animation: fadeIn 1s linear forwards;
+    animation-delay: 1.5s;
+}
