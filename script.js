@@ -98,7 +98,7 @@ const imageLinks = {
     'parcours.png': 'page1/page1.html',
     'competences.png': 'page2/page2.html',
     'projets.png': 'page3/page3.html',
-    'musculation.jpg': '#',
+    'cv.png': 'page4/page4.html',
     'resto6.jpg': '#',
     'trocadero2.jpg': '#'
 };
