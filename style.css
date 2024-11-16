@@ -1,34 +1,33 @@
-*{
+/* Réinitialiser les marges et le padding */
+* {
     margin: 0;
     padding: 0;
 }
-html , body {
+
+/* Mise en place du body et fond */
+html, body {
     height: 100%;
     touch-action: none;
-}
-
-body{
-    overflow: hidden;
-    display: -webkit-box;
-    display: -ms-flexbox;
+    font-family: Arial, sans-serif;
+    background-color: #191919;
     display: flex;
-    background: #191919;
-    -webkit-perspective: 1000px;
-    perspective: 1000px;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    transition: transform 1s ease-out, opacity 0.5s ease-out;
-    opacity: 1;
+    justify-content: center;
+    align-items: center;
 }
 
+body {
+    overflow: hidden;
+}
+
+/* Style du titre */
 h1 {
     position: absolute;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    top: 0;           
-    left: 50%;        
-    transform: translateX(-50%);   
-    color: white; 
-    font-size: 9vw;  
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 9vw;
     color: rgb(70, 70, 70);
     text-transform: uppercase;
 }
@@ -38,13 +37,12 @@ h1::before {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%; /* Laissez le texte occuper toute la largeur */
+    width: 100%;
     height: 100%;
-    background: linear-gradient(to right, #8c00b3, #ffa424); /* Dégradé de couleur */
-    -webkit-background-clip: text; /* Applique le fond uniquement au texte */
-    background-clip: text; /* Support pour les navigateurs non-webkit */
-    color: transparent; /* Rendre le texte transparent pour que le fond soit visible */
-    border-right: 2px solid #fff; /* Bordure droite du texte */
+    background: linear-gradient(to right, #8c00b3, #ffa424);
+    background-clip: text;
+    color: transparent;
+    border-right: 2px solid #fff;
     overflow: hidden;
     animation: animate 6s linear infinite;
 }
@@ -53,103 +51,81 @@ h1::before {
     0%, 10%, 100% {
         width: 0;
     }
-    70%, 90%{
+    70%, 90% {
         width: 100%;
     }
 }
 
-
-#drag, #spin{
+/* Conteneur principal */
+#drag {
     position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    margin: auto;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    -webkit-transform: rotateX(-10deg);
-    transform: rotateX(-10deg);
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
-.portfolio-img {
-    width: 100%;  /* L'image prend toute la largeur */
-    height: 100%; /* L'image prend toute la hauteur */
-    object-fit: cover; /* Couvre l'espace sans déformer l'image */
-    transition: opacity 0.3s ease;
-}
-
-
-#drag img, #spin video{
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 200px;
+/* Conteneur des images */
+#spin {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    width: 80%; /* Largeur pour ajuster l'espace */
     height: 200px;
-    line-height: 200px;
-    font-size: 50px;
-    text-align: center;
-    -webkit-box-shadow: 0 0 8px #fff;
-    box-shadow: 0 0 #fff;
-    -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
+    margin-top: 10%;
 }
 
-#drag img:hover, #spin video:hover{
-    -webkit-box-shadow: 0 0 15px #fffd;
-    box-shadow: 0 0 15px #fffd;
-    -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0007);
-    cursor: pointer;
+/* Animation des images en vagues */
+.portfolio-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    opacity: 0;
+    transform: translateY(50px); /* Départ plus bas pour l'effet de vague */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    margin: 0 20px;
 }
 
+/* Animation pour les images */
+#spin img:nth-child(1) {
+    animation: wave 1s ease-out forwards 0.5s;
+}
 
-#ground{
-    width: 900px;
-    height: 900px;
+#spin img:nth-child(2) {
+    animation: wave 1s ease-out forwards 1s;
+}
+
+#spin img:nth-child(3) {
+    animation: wave 1s ease-out forwards 1.5s;
+}
+
+#spin img:nth-child(4) {
+    animation: wave 1s ease-out forwards 2s;
+}
+
+#spin img:nth-child(5) {
+    animation: wave 1s ease-out forwards 2.5s;
+}
+
+/* Animation de vague */
+@keyframes wave {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Effet de fond */
+#ground {
+    width: 100%;
+    height: 20px;
+    background: radial-gradient(circle, #9993, transparent);
     position: absolute;
-    top: 100%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%) rotateX(90deg);
-    transform: translate(-50%, -50%) rotateX(90deg);
-    background: -webkit-radial-gradient(center center, farthest-side, #9993, transparent );
-}
-
-@-webkit-keyframes spin {
-    from{
-        -webkit-transform: rotateY(0deg);
-        transform: rotateY(0deg);
-    } to {
-        -webkit-transform: rotateY(360deg);
-        transform: rotateY(360deg);
-    }
-}
-
-@keyframes spin {
-    from{
-        -webkit-transform: rotateY(0deg);
-        transform: rotateY(0deg);
-    } to {
-        -webkit-transform: rotateY(360deg);
-        transform: rotateY(360deg);
-    }
-}
-
-@-webkit-keyframes spinRevert {
-    from{
-        -webkit-transform: rotateY(360deg);
-        transform: rotateY(360deg);
-    } to {
-        -webkit-transform: rotateY(0deg);
-        transform: rotateY(0deg);
-    }
-}
-
-@keyframes spinRevert {
-    from{
-        -webkit-transform: rotateY(360deg);
-        transform: rotateY(360deg);
-    } to {
-        -webkit-transform: rotateY(0deg);
-        transform: rotateY(0deg);
-    }
+    bottom: 0;
 }
