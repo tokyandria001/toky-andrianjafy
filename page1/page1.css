@@ -15,15 +15,61 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+    overflow-y: hidden;
+}
+
+.container1{
+    position: absolute;
+    margin: 0 auto;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.bulles{
+    position: relative;
+    display: flex;
+    gap: 25px;
+}
+
+.bulles span{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: #ba0aff;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #c60087,
+    0 0 50px #ba0aff,
+    0 0 100px #ba0aff;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(125s / var(--i));
+}
+
+.bulles span:nth-child(even){
+    background-color: #d66f00;
+    box-shadow: 0 0 0 10px #d65900,
+    0 0 50px #d66f00,
+    0 0 100px #d66f00;
+}
+
+@keyframes animate{
+    0%{
+        transform: translateY(100vh) scale(0);
+    }
+    100%{
+        transform: translateY(-10vh) scale(1);
+    }
 }
 
 .container {
+    position: absolute;
     max-width: 1000px;
     width: 100%;
     padding: 30px;
-    background: linear-gradient(#6e007d, #e77f11);
+    background: rgba(0, 0, 0, 0.15);
     border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow-y: visible;
 }
 
 /* Header */
@@ -118,11 +164,20 @@ input:checked + .slider:before {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-.presentation, .parcours {
+.presentation{
     font-size: 1.1rem;
     color: #ffffff;
     line-height: 1.6;
-    background: rgba(0, 0, 0, 0.15);
+    background: #191919;
+    height: 300px;
+}
+
+.parcours {
+    font-size: 1.1rem;
+    color: #ffffff;
+    line-height: 1.6;
+    background: #191919;
+    height: auto;
 }
 
 .objectif {
@@ -132,7 +187,7 @@ input:checked + .slider:before {
     max-width: 900px;
     width: 100%;
     padding: 30px;
-    background: rgba(0, 0, 0, 0.15);
+    background: #191919;
 }
 
 /* Responsive Design */
