@@ -20,41 +20,41 @@ body {
 }
 
 /* Style du titre */
-h1 {
+.text-box{
+    color: #fff;
     position: absolute;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-size: 9vw;
-    color: rgb(70, 70, 70);
-    text-transform: uppercase;
+    top: 8%;
 }
 
-h1::before {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, #8c00b3, #ffa424);
-    background-clip: text;
+.text-box p{
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.text-box h1{
+    font-size: 190px;
+    line-height: 160px;
+    margin-left: -10px;
     color: transparent;
-    border-right: 2px solid #fff;
-    overflow: hidden;
-    animation: animate 6s linear infinite;
+    -webkit-text-stroke: 1px #fff;
+    background: url(images/battement-de-coeur.png);
+    -webkit-background-clip: text;
+    background-position: 0 0;
+    background-size: cover;
+    animation: back 20s linear infinite;
 }
 
-@keyframes animate {
-    0%, 10%, 100% {
-        width: 0;
-    }
-    70%, 90% {
-        width: 100%;
+@keyframes back{
+    100%{
+        background-position: 2000px 0;
     }
 }
+
+.text-box h3{
+    font-size: 40px;
+    font-weight: 500;
+}
+
 
 /* Conteneur principal */
 #drag {
@@ -69,12 +69,14 @@ h1::before {
 /* Conteneur des images */
 #spin {
     display: flex;
+    gap: 10vh;
     justify-content: space-around;
     align-items: center;
     position: relative;
-    width: 80%; /* Largeur pour ajuster l'espace */
+    width: 100%; /* Largeur pour ajuster l'espace */
     height: 200px;
     margin-top: 10%;
+    flex-wrap: wrap; /* Pour que les éléments s'ajustent automatiquement */
 }
 
 /* Animation des images en vagues */
@@ -85,7 +87,7 @@ h1::before {
     opacity: 0;
     transform: translateY(50px); /* Départ plus bas pour l'effet de vague */
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-    margin: 0 20px;
+    margin: 10px;
 }
 
 /* Animation pour les images */
@@ -121,11 +123,19 @@ h1::before {
     }
 }
 
-/* Effet de fond */
-#ground {
-    width: 100%;
-    height: 20px;
-    background: radial-gradient(circle, #9993, transparent);
-    position: absolute;
-    bottom: 0;
+#spin a {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Style des labels */
+label {
+    color: white; /* Couleur du texte */
+    font-size: 1.2rem; /* Taille du texte */
+    margin-top: 8px; /* Espace entre l'image et le label */
+    font-weight: bold;
+    text-transform: uppercase;
 }
