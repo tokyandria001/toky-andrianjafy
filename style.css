@@ -24,6 +24,7 @@ body {
     color: #fff;
     position: absolute;
     top: 8%;
+    left: 8%;
 }
 
 .text-box p{
@@ -36,18 +37,11 @@ body {
     line-height: 160px;
     margin-left: -10px;
     color: transparent;
-    -webkit-text-stroke: 1px #fff;
-    background: url(images/battement-de-coeur.png);
+    -webkit-text-stroke: 1px #191919;
+    background: url(images/15941.jpg);
     -webkit-background-clip: text;
     background-position: 0 0;
     background-size: cover;
-    animation: back 20s linear infinite;
-}
-
-@keyframes back{
-    100%{
-        background-position: 2000px 0;
-    }
 }
 
 .text-box h3{
@@ -58,10 +52,11 @@ body {
 
 /* Conteneur principal */
 #drag {
-    position: relative;
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
+    top: 8%;
     width: 100%;
     height: 100%;
 }
@@ -73,10 +68,10 @@ body {
     justify-content: space-around;
     align-items: center;
     position: relative;
-    width: 100%; /* Largeur pour ajuster l'espace */
+    width: 100%;
     height: 200px;
     margin-top: 10%;
-    flex-wrap: wrap; /* Pour que les éléments s'ajustent automatiquement */
+    flex-wrap: wrap;
 }
 
 /* Animation des images en vagues */
@@ -84,58 +79,95 @@ body {
     width: 150px;
     height: 150px;
     object-fit: cover;
-    opacity: 0;
-    transform: translateY(50px); /* Départ plus bas pour l'effet de vague */
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
     margin: 10px;
+    opacity: 0; /* Images invisibles au début */
+    transform: translateY(50px); /* Décale les images vers le bas */
+    animation: waveEffect 1.5s ease-out forwards; /* Animation des images */
 }
 
-/* Animation pour les images */
-#spin img:nth-child(1) {
-    animation: wave 1s ease-out forwards 0.5s;
-}
-
-#spin img:nth-child(2) {
-    animation: wave 1s ease-out forwards 1s;
-}
-
-#spin img:nth-child(3) {
-    animation: wave 1s ease-out forwards 1.5s;
-}
-
-#spin img:nth-child(4) {
-    animation: wave 1s ease-out forwards 2s;
-}
-
-#spin img:nth-child(5) {
-    animation: wave 1s ease-out forwards 2.5s;
-}
-
-/* Animation de vague */
-@keyframes wave {
+/* Animation de l'effet de vague pour les images */
+@keyframes waveEffect {
     0% {
         opacity: 0;
-        transform: translateY(50px);
+        transform: translateY(50px); /* Départ avec un décalage vers le bas */
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-20px); /* Se déplace vers le haut */
     }
     100% {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0); /* Position finale (stable) */
     }
 }
 
+/* Animation progressive des images */
+#spin a:nth-child(1) .portfolio-img {
+    animation-delay: 0s;
+}
+#spin a:nth-child(2) .portfolio-img {
+    animation-delay: 0.2s;
+}
+#spin a:nth-child(3) .portfolio-img {
+    animation-delay: 0.4s;
+}
+#spin a:nth-child(4) .portfolio-img {
+    animation-delay: 0.6s;
+}
+#spin a:nth-child(5) .portfolio-img {
+    animation-delay: 0.8s;
+}
+
+/* Animation des labels */
+label {
+    color: white;
+    font-size: 1.2rem;
+    margin-top: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    opacity: 0; /* Labels invisibles au début */
+    transform: translateY(20px); /* Déplace légèrement vers le bas */
+    animation: labelWaveEffect 1s ease-out forwards; /* Animation des labels */
+}
+
+/* Animation de l'effet de vague pour les labels */
+@keyframes labelWaveEffect {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Départ légèrement vers le bas */
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-10px); /* Monte un peu pour l'effet de vague */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Position finale (stable) */
+    }
+}
+
+/* Animation progressive des labels */
+#spin a:nth-child(1) label {
+    animation-delay: 0.3s; /* Délai pour le premier label */
+}
+#spin a:nth-child(2) label {
+    animation-delay: 0.5s; /* Délai pour le deuxième label */
+}
+#spin a:nth-child(3) label {
+    animation-delay: 0.7s; /* Délai pour le troisième label */
+}
+#spin a:nth-child(4) label {
+    animation-delay: 0.9s; /* Délai pour le quatrième label */
+}
+#spin a:nth-child(5) label {
+    animation-delay: 1.1s; /* Délai pour le cinquième label */
+}
+
+/* Animation pour les images */
 #spin a {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-}
-
-/* Style des labels */
-label {
-    color: white; /* Couleur du texte */
-    font-size: 1.2rem; /* Taille du texte */
-    margin-top: 8px; /* Espace entre l'image et le label */
-    font-weight: bold;
-    text-transform: uppercase;
 }
