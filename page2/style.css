@@ -19,6 +19,15 @@ body{
     width: 100%;
     height: 100%;
 }
+
+.home{
+    position: absolute;
+    font-size: 40px;
+    top: 0;
+    left: 0;
+    padding: 20px;
+  }
+
 .techniques{
     color: white;
     position: absolute;
@@ -113,10 +122,15 @@ ul li span{
     height: 200px;
     right: 20%;
     color: white;
+    background-color: rgba(0,0,0,0.25);
     font-size: 20px;
-    padding: 7px;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
     left: 75%;
 }
+
+.description p{
+    padding: 20px;
+}
+

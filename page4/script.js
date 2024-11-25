@@ -11,3 +11,4 @@ languageSwitch.addEventListener('change', function () {
     languageText.textContent = 'Langue : Français';
   }
 });
+
