@@ -1,5 +1,3 @@
-// script.js
-
 document.getElementById('language-toggle').addEventListener('change', function() {
     const isChecked = this.checked;  // Vérifie si l'option est activée (langue anglaise)
 
