@@ -10,7 +10,8 @@ function show(){
     openMenu.style.visibility = "hidden";
     closeMenu.style.visibility = "visible";
     mainMenu.style.top = '0';
-    document.querySelector(".container").style.filter = 'blur(5px)';
+    document.querySelector(".presentation").style.filter = 'blur(5px)';
+    document.querySelector(".bulles").style.filter = 'blur(5px)';
 }
 
 function close(){
@@ -18,7 +19,7 @@ function close(){
     closeMenu.style.visibility = "none";
     mainMenu.style.top = '-100%';
     mainMenu.style.visibility = 'visible';
-    document.querySelector(".container").style.filter = 'blur(0px)';
+    document.querySelector(".presentation").style.filter = 'blur(0px)';
 }
 
 document.getElementById('language-toggle').addEventListener('change', function() {

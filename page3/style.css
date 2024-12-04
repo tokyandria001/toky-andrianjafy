@@ -27,6 +27,78 @@ body{
     height: 100%;
 }
 
+nav{
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 5px;
+  color: #fff;
+  z-index: 10; 
+}
+
+nav .mainMenu{
+  display: flex;
+  list-style: none;
+}
+
+
+nav .mainMenu li a{
+  display: inline-block;
+  padding: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+nav .openMenu{
+  font-size: 2rem;
+  margin: 20px;
+  display: none;
+  cursor: pointer;
+}
+
+nav .mainMenu .closeMenu{
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 25px;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+@media(max-width: 2000px) {
+
+  nav .mainMenu{
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.5);
+    transition: top 1s ease;
+    display: none;
+  }
+
+  nav.mainLenu .closeMenu{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  nav .openMenu{
+    display: block;
+  }
+  nav .mainMenu li a:hover{
+    background: none;
+    color: #d65900;
+    font-size: 1.6rem;
+  }
+}
+
 .container .box{
     position: relative;
     width: 350px;

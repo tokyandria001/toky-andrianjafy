@@ -15,17 +15,19 @@
   }
 
   nav{
-    position: absolute;
+    position: fixed; /* Changez la position pour "fixed" */
     top: 0;
     left: 0;
     padding: 5px;
     color: #fff;
+    z-index: 10; /* Assurez-vous qu'il soit au-dessus des autres éléments */
   }
-
+  
   nav .mainMenu{
     display: flex;
     list-style: none;
   }
+  
 
   nav .mainMenu li a{
     display: inline-block;
@@ -53,9 +55,6 @@
   }
 
   @media(max-width: 2000px) {
-
-    
-
     nav .mainMenu{
       height: 100vh;
       position: fixed;
