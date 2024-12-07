@@ -26,29 +26,37 @@ h1{
   top: 40px;
   justify-content: center;
   font-size: 50px;
+  color: white;
 }
 
 .container{
-  position: absolute;
+  position: relative;
+  overflow-x: hidden;
   overflow-y: scroll;
-  display: grid;
-  width: 80%;
+  display: flex;
+  width: 85%;
   border-radius: 10px;
-  height: 350px;
-  grid-template-columns: repeat(3, 1fr);
+  height: 400px;
+  /*grid-template-columns: repeat(4, 1fr);*/
   justify-content: center;
   align-items: center;
   text-align: center;
-  grid-gap: 1rem;
+  grid-gap: 2rem;
   padding: 1rem 80px;
   font-size: 1.2rem;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .competences{
   padding: 1rem;
   color: #ddd;
   cursor: pointer;
+  position: relative;
+}
+
+.competences p{
+  height: 200px;
+  width: 380px;
 }
 
 .titre{
@@ -60,8 +68,8 @@ h1{
 }
 
 .img{
-  width: 90px;
-  height: 90px;
+  width: 50px;
+  height: 50px;
   position: relative;
   border-radius: 45px;
   background: linear-gradient(#8b6cfe, #d6009d);
@@ -91,15 +99,15 @@ nav{
     display: flex;
     list-style: none;
   }
-  
+
 
   nav .mainMenu li a{
     display: inline-block;
-    padding: 15px;
+    padding: 20px;
     text-decoration: none;
     text-transform: uppercase;
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 40px;
   }
 
   nav .openMenu{
@@ -128,7 +136,7 @@ nav{
       z-index: 10;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
+      align-items: left;
       background: rgba(0,0,0,0.5);
       transition: top 1s ease;
       display: none;
@@ -142,9 +150,11 @@ nav{
     nav .openMenu{
       display: block;
     }
+    
     nav .mainMenu li a:hover{
       background: none;
       color: #d65900;
-      font-size: 1.6rem;
+      font-size: 60px;
+      transition: all ease-out 0.2s;
     }
 }

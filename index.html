@@ -1,42 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon portfolio</title>
+    <title>Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body data-barba="container">
-    <div class="cover"></div>
-    <div class="text-box">
-        <p>Je suis</p>
-        <h1>TOKY</h1>
-        <h3>Étudiant en informatique</h3>
-        <span>Chaque projet que je crée est une nouvelle aventure, mêlant technologie et créativité.</span>
-    </div>
-    <div id="drag">
-        <div id="spin">
-            <a href="page1/page1.html">
-                <img class="portfolio-img" src="images/projets.png" alt="">
-                <label for="">Présentation</label>
-            </a>
-            <a href="page2/page2.html">
-                <img class="portfolio-img" src="images/competences.png" alt="">
-                <label for="">Compétences</label>
-            </a>
-            <a href="page3/page3.html">
-                <img class="portfolio-img" src="images/projets.png" alt="">
-                <label for="">Projets</label>
-            </a>
-            <a href="page4/page4.html">
-                <img class="portfolio-img" src="images/cv.png" alt="">
-                <label for="">CV</label>
-            </a>
-            <a href="page5/page5.html">
-                <img class="portfolio-img" src="images/loisirs.png" alt="">
-                <label for="">Loisirs</label>
-            </a>
-        </div>        
-    </div>
+<body>
+    <main class="section-principale">
+        <!-- Section d'introduction -->
+        <section class="section-intro">
+
+            <div class="section-intro-wrapper">
+                <div class="separation">
+                    <span>MON PORTFOLIO</span>
+                    <span>SCROLLEZ POUR EN SAVOIR PLUS</span>
+                </div>
+
+                <!-- Première page (Présentation personnelle) -->
+                <div class="projet" id="p1">
+                    <div class="vignette-projet">
+                        <div class="page1">
+                            <div class="cover"></div>
+                            <section>
+                                <div class="vague vague1"></div>
+                                <div class="vague vague2"></div>
+                                <div class="vague vague3"></div>
+                                <div class="vague vague4"></div>
+                            </section>
+                            <div class="text-box">
+                                <h1>TOKY</h1>
+                                <h3>Étudiant en informatique</h3>
+                                <p>Chaque projet que je crée est une nouvelle aventure, mêlant technologie et créativité.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="media-projet" style="background: url(images/mb.jpg); background-size: cover;">
+                            <div class="carte">
+                                <p>Étudiant en informatique, je suis une personne naturellement curieuse, motivée à apprendre et toujours prête à mettre rapidement la main à la pâte. Bien que je sois souvent autonome dans mes projets, je crois fermement que le travail en groupe enrichit mes expériences et m'apporte de nouvelles perspectives. Mon objectif est d’enrichir mes compétences en continu et de contribuer activement aux projets sur lesquels je travaille.</p>
+                            </div>
+                    </div>
+                </div>
+
+                <!-- Deuxième page (Compétences) -->
+                <div class="projet" id="p2">
+                    <div class="vignette-projet" style="background: url(images/mb2.jpg); background-size: cover;">
+                    </div>
+                    <div class="media-projet">
+                        <div class="grid-container">
+                            <h2 style="position: absolute; top: 0; left: 20px; font-size: 50px;">Compétences techniques</h2>
+                            <div class="item1"><img src="images/iconhtml.png" alt=""></div>
+                            <div class="item2"><img src="images/iconcss.png" alt=""></div>
+                            <div class="item3"><img src="images/php.png" alt=""></div>  
+                            <div class="item4"><img src="images/jscript.png" alt=""></div>
+                            <div class="item5"><img src="images/java.png" alt=""></div>
+                            <div class="item6"><img src="images/react.png" alt=""></div>
+                            <div class="item7"><img src="images/symfony.png" alt=""></div>
+                            <div class="item8"><img src="images/sql.png" alt=""></div>
+                            <div class="item9"><img src="images/git.png" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dernière page (Message de remerciement) -->
+                <div class="projet">
+                    <div class="vignette-projet">
+                    </div>
+                    <div class="media-projet media-texte">
+                        <span>Merci d'avoir regardé</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.umd.min.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>

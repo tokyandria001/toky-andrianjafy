@@ -1,185 +1,305 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-
-html, body {
-    background: url(images/sunset.jpeg);
-    background-size: cover;
-    height: 100%;
-    touch-action: none;
-    font-family: Arial, sans-serif;
-    background-color: #191919;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+html {
+  font-size: calc(100vw / 1920 * 10);
 }
 
 body {
-    overflow: hidden;
+  font-family: 'Primary';
+  background-color: var(--primaire);
+  color: var(--secondaire);
+  padding: 0;
+  margin: 0;
 }
 
-.container{
-    padding: 2em;
+.carte p {
+  display: block;
+  font-size: 2rem;
 }
 
-.cover{
-    position: absolute;
-    background: rgba(0, 0, 0, 0.5);
-    width: 100%;
-    height: 100%;
-}
-
-/* Style du titre */
 .text-box{
-    color: #fff;
-    position: absolute;
-    top: 8%;
-    left: 8%;
-}
-
-.text-box p{
-    font-size: 50px;
-    font-weight: 600;
+  position: absolute;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  top: 10px;
+  left: 40px;
+  color: white;
 }
 
 .text-box h1{
-    font-size: 190px;
-    line-height: 160px;
-    margin-left: -10px;
-    color: transparent;
-    -webkit-text-stroke: 1px #191919;
-    background: url(images/15941.jpg);
-    -webkit-background-clip: text;
-    background-position: 0 0;
-    background-size: cover;
+  font-size: 150px;
+  -webkit-text-stroke: 1px #b0b0b0;
+  color: transparent;
+  background: url(images/smoke.gif);
+  -webkit-background-clip: text;
+  background-size: cover;
+  width: 500px;
+  height: auto;
 }
 
 .text-box h3{
-    font-size: 40px;
-    font-weight: 500;
+  font-size: 30px;
 }
 
-
-/* Conteneur principal */
-#drag {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 8%;
-    width: 100%;
-    height: 100%;
+.text-box p {
+  font-size: 30px;
 }
 
-/* Conteneur des images */
-#spin {
-    display: flex;
-    gap: 10vh;
-    justify-content: space-around;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    height: 200px;
-    margin-top: 10%;
-    flex-wrap: wrap;
+.section-principale {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
-/* Animation des images en vagues */
-.portfolio-img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    margin: 10px;
-    opacity: 0; /* Images invisibles au début */
-    transform: translateY(50px); /* Décale les images vers le bas */
-    animation: waveEffect 1.5s ease-out forwards; /* Animation des images */
+.section-intro {
+  width: inherit;
+  height: inherit;
 }
 
-/* Animation de l'effet de vague pour les images */
-@keyframes waveEffect {
-    0% {
-        opacity: 0;
-        transform: translateY(50px); /* Départ avec un décalage vers le bas */
-    }
-    50% {
-        opacity: 1;
-        transform: translateY(-20px); /* Se déplace vers le haut */
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0); /* Position finale (stable) */
-    }
+.section-intro-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
-/* Animation progressive des images */
-#spin a:nth-child(1) .portfolio-img {
-    animation-delay: 0s;
-}
-#spin a:nth-child(2) .portfolio-img {
-    animation-delay: 0.2s;
-}
-#spin a:nth-child(3) .portfolio-img {
-    animation-delay: 0.4s;
-}
-#spin a:nth-child(4) .portfolio-img {
-    animation-delay: 0.6s;
-}
-#spin a:nth-child(5) .portfolio-img {
-    animation-delay: 0.8s;
-}
-
-/* Animation des labels */
-label {
-    color: white;
-    font-size: 1.2rem;
-    margin-top: 8px;
-    font-weight: bold;
-    text-transform: uppercase;
-    opacity: 0; /* Labels invisibles au début */
-    transform: translateY(20px); /* Déplace légèrement vers le bas */
-    animation: labelWaveEffect 1s ease-out forwards; /* Animation des labels */
+.separation {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  transform: translate(-50%, 0);
+  padding: 1.6rem;
+  justify-content: center;
+  gap: 30%;
+  display: flex;
+  height: 100%;
+  writing-mode: vertical-lr;
+  background-color: black;
+  color: white;
+  z-index: 99;
 }
 
-/* Animation de l'effet de vague pour les labels */
-@keyframes labelWaveEffect {
-    0% {
-        opacity: 0;
-        transform: translateY(20px); /* Départ légèrement vers le bas */
-    }
-    50% {
-        opacity: 1;
-        transform: translateY(-10px); /* Monte un peu pour l'effet de vague */
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0); /* Position finale (stable) */
-    }
+.projet {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  gap: 3.2rem;
 }
 
-/* Animation progressive des labels */
-#spin a:nth-child(1) label {
-    animation-delay: 0.3s; /* Délai pour le premier label */
-}
-#spin a:nth-child(2) label {
-    animation-delay: 0.5s; /* Délai pour le deuxième label */
-}
-#spin a:nth-child(3) label {
-    animation-delay: 0.7s; /* Délai pour le troisième label */
-}
-#spin a:nth-child(4) label {
-    animation-delay: 0.9s; /* Délai pour le quatrième label */
-}
-#spin a:nth-child(5) label {
-    animation-delay: 1.1s; /* Délai pour le cinquième label */
+.vignette-projet,
+.media-projet {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  flex: 1 1 50%;
+  background-color: #191919;
+  overflow: hidden;
 }
 
-/* Animation pour les images */
-#spin a {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.cover{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.vignette-projet span {
+  position: absolute;
+  font-size: 40px;
+  color: white;
+  background-color: black;
+  padding: 20px;
+}
+
+.media-texte {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.vignette-projet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vignette-projet img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-projet img {
+  width: 100%;
+  height: 50rem;
+  object-fit: cover;
+}
+
+.vague {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url(images/wave.png);
+  background-size: 1000px 100px;
+}
+
+.vague.vague1 {
+  animation: animer 30s linear infinite;
+  z-index: 1000;
+  opacity: 1;
+  animation-delay: 0s;
+  bottom: 0;
+}
+
+.vague.vague2 {
+  animation: animer2 15s linear infinite;
+  z-index: 999;
+  opacity: 0.5;
+  animation-delay: -5s;
+  bottom: 10px;
+}
+
+.vague.vague3 {
+  animation: animer3 30s linear infinite;
+  z-index: 998;
+  opacity: 0.7;
+  animation-delay: -2s;
+  bottom: 15px;
+}
+
+.vague.vague4 {
+  animation: animer4 15s linear infinite;
+  z-index: 997;
+  opacity: 0.7;
+  animation-delay: -5s;
+  bottom: 20px;
+}
+
+@keyframes animer {
+  0% {
+      background-position-x: 0;
+  }
+
+  100% {
+      background-position-x: 1000px;
+  }
+}
+
+@keyframes animer2 {
+  0% {
+      background-position-x: 0;
+  }
+
+  100% {
+      background-position-x: 1000px;
+  }
+}
+
+@keyframes animer3 {
+  0% {
+      background-position-x: 0;
+  }
+
+  100% {
+      background-position-x: -1000px;
+  }
+}
+
+#presentation {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.carte {
+  margin-top: 50%;
+  margin-left: 20%;
+  padding: 2em;
+  width: 500px;
+  height: auto;
+  background: #1c1f2b;
+  color: white;
+  text-align: justify;
+  border-radius: 10px;
+  position: relative;
+}
+
+.carte::after,
+.carte::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(#ffffff, #ffffff, #ffffff, #ffffff, #ffffff);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 3px;
+  border-radius: 10px;
+  animation: 3s rotation linear infinite;
+}
+
+.carte::before {
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+
+@keyframes rotation {
+  from {
+      --angle: 0deg;
+  }
+
+  to {
+      --angle: 360deg;
+  }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 50px; /* Augmente l'espace entre les éléments */
+  padding: 10px; /* Ajuste l'espace autour de la grille */
+}
+
+.grid-container > div {
+  position: relative;
+  width: 90px;  /* Nouvelle largeur des cases */
+  height: 90px; /* Nouvelle hauteur des cases */
+}
+
+.grid-container > div >img {
+  position: relative;
+  width: 90px;
+  height: auto;
+}
+
+@media screen and (max-width: 760px) {
+  html {
+      font-size: calc(100vw / 768 * 10);
+  }
+
+  .section-intro-wrapper {
+      flex-direction: column;
+  }
+
+  .separation {
+      writing-mode: unset;
+      width: 100%;
+      height: auto;
+      left: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+  }
+
+  .vignette-projet,
+  .media-projet {
+      flex: 1 1 100%;
+  }
 }
